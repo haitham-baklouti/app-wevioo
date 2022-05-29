@@ -1,10 +1,10 @@
 import axios from "../../../config/axios";
 
 export interface IPostApi {
-    getPost(): any
+    getPost(page: number, rowsPerPage: number): any
 }
 export class PostApi implements IPostApi {
-    async getPost() {
-        return axios.Get('/post');
+    async getPost(page: number, rowsPerPage: number) {
+        return axios.Get('/post' + `?page=${page}&limit=${rowsPerPage}`);
     }
 }
