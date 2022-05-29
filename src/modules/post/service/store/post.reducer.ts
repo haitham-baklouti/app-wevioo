@@ -8,6 +8,7 @@ export default (state: PostState = initialState, action: any): any => {
                 allPost: action.response.data,
                 limit: action.response.limit,
                 page: action.response.page,
+                total: action.response.total,
             }
         default:
             return state;

@@ -13,6 +13,7 @@ export const initialState: any = {
     allPost: {} as IPost,
     limit: 10 as number,
     page: 0 as number,
+    total: 0 as number,
 }
 
 export type PostState = Readonly<typeof initialState>;
