@@ -5,11 +5,14 @@ import Post from './pages/post/post';
 function App() {
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Post />} />
-      </Routes>
-    </BrowserRouter>
+    <div className='App'>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Post />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+
   );
 }
 
