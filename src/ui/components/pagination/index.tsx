@@ -24,6 +24,7 @@ export default function Pagination(props: any) {
 
     return (
         <TablePagination
+            style={{ alignItems: 'center' }}
             component="div"
             count={props.total}
             page={page}
