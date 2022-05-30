@@ -26,10 +26,11 @@ const Home = () => {
     }, [page, rowsParPage, idFilter])
 
     useEffect(() => {
-        dispatch(getUsers())
-        dispatch(getTags())
+        if (!getAllUsers.allUser.length)
+            dispatch(getUsers())
+        if (!getAllTags.allTag.length)
+            dispatch(getTags())
     }, [])
-
 
     const handelFilter = (id: string) => {
         if (id !== 'all') setIdFilter(id)
