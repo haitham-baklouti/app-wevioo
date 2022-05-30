@@ -5,6 +5,11 @@ export default function Pagination(props: any) {
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
+    React.useEffect(() => {
+        setPage(props.page);
+        setRowsPerPage(props.rowsParPage);
+    }, [props.page, props.rowsParPage])
+
     const handleChangePage = (event: any, newPage: any) => {
         setPage(newPage);
         props.setPerPage(newPage);
