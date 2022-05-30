@@ -10,6 +10,13 @@ export default (state: PostState = initialState, action: any): any => {
                 page: action.response.page,
                 total: action.response.total,
             }
+        case ACTION_TYPE.GET_ALL_POST_BY_USER:
+            return {
+                allPost: action.response.data,
+                limit: action.response.limit,
+                page: action.response.page,
+                total: action.response.total,
+            }
         default:
             return state;
     }
