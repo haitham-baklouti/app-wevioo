@@ -8,11 +8,13 @@ import Pagination from "../../ui/components/pagination";
 import FilterForm from "../../ui/components/filterForm";
 import setListInput from './setListInput'
 import { getUsers } from "../../modules/user/service/user.service";
+import { getTags } from "../../modules/tag/service/tag.service";
 
 const Home = () => {
     const dispatch = useDispatch<any>();
     const getAllPosts: any = useSelector<any>((state: IRootState) => state.post);
     const getAllUsers: any = useSelector<any>((state: IRootState) => state.user);
+    const getAllTags: any = useSelector<any>((state: IRootState) => state.tag);
     const [rowsParPage, setRowsParPage] = useState(5);
     const [page, setPage] = useState(0);
     const [idFilter, setIdFilter] = useState<any>(null);
@@ -25,6 +27,7 @@ const Home = () => {
 
     useEffect(() => {
         dispatch(getUsers())
+        dispatch(getTags())
     }, [])
 
 
@@ -38,21 +41,10 @@ const Home = () => {
     return (
         <Grid>
             <Grid container>
-                <Grid md={4}>
-                    <FilterForm
-                        handelFilter={(id: string) => handelFilter(id)}
-                        setListInput={() => setListInput(getAllUsers.allUser)}
-                    />
-                </Grid>
-                <Grid md={6}>
-                    <Pagination
-                        total={getAllPosts.total}
-                        setPerPage={(e: any) => setPage(e)}
-                        setPerRowPage={(e: any) => setRowsParPage(e)}
-                        page={page}
-                        rowsParPage={rowsParPage}
-                    />
-                </Grid>
+                <FilterForm
+                    handelFilter={(id: string) => handelFilter(id)}
+                    setListInput={() => setListInput(getAllUsers.allUser, getAllTags.allTag)}
+                />
             </Grid>
             <Grid container spacing={1}>
                 {Object.values(getAllPosts.allPost).map((element: any, key: any) => {
@@ -60,6 +52,15 @@ const Home = () => {
                         <Card element={element} />
                     </Grid>
                 })}
+            </Grid>
+            <Grid md={12} sm={12} xs={12}>
+                <Pagination
+                    total={getAllPosts.total}
+                    setPerPage={(e: any) => setPage(e)}
+                    setPerRowPage={(e: any) => setRowsParPage(e)}
+                    page={page}
+                    rowsParPage={rowsParPage}
+                />
             </Grid>
         </Grid>
 
