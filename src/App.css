@@ -3,6 +3,19 @@
   margin: 15px;
 }
 
+body {
+  padding-right: 0 !important;
+  overflow: auto !important
+}
+
+.css-78c6dr-MuiToolbar-root-MuiTablePagination-toolbar .MuiTablePagination-actions {
+  margin-left: 0 !important;
+}
+
+.css-1uzaow0-MuiPaper-root-MuiCard-root {
+  min-height: 450px !important;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

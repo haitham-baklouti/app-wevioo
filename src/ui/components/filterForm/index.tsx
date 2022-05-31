@@ -40,7 +40,7 @@ const FilterForm = (props: any) => {
 
         setValueMultiple(event.target.value);
     }
-    console.log(valueMultiple)
+
     const handleChange = (event: any) => {
         setId(event.target.value);
         props.handelFilter(event.target.value);
@@ -52,7 +52,7 @@ const FilterForm = (props: any) => {
             if (item.isSelect)
                 return (
                     <Grid md={6} sm={12} xs={12}>
-                        <FormControl sx={{ m: 1, width: 400 }}>
+                        <FormControl sx={{ m: 1, width: 250 }}>
                             <InputLabel id="demo-select-name-label">{item.label}</InputLabel>
                             <Select
                                 labelId="demo-select-name-label"
@@ -77,7 +77,7 @@ const FilterForm = (props: any) => {
             else if (item.isAutoComplete)
                 return (
                     <Grid md={6} sm={12} xs={12}>
-                        <FormControl sx={{ m: 1, width: 400 }}>
+                        <FormControl sx={{ m: 1, width: 250 }}>
                             <InputLabel id="demo-multiple-name-label">{item.label}</InputLabel>
                             <Select
                                 labelId="demo-multiple-name-label"
