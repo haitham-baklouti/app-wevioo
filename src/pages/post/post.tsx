@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllPost, getAllPostByUser } from "../../modules/post/service/post.service";
 import { IRootState } from "../../reducers";
@@ -9,9 +9,11 @@ import FilterForm from "../../ui/components/filterForm";
 import setListInput from './setListInput'
 import { getUsers } from "../../modules/user/service/user.service";
 import { getTags } from "../../modules/tag/service/tag.service";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
     const dispatch = useDispatch<any>();
+    const navigate = useNavigate();
     const getAllPosts: any = useSelector<any>((state: IRootState) => state.post);
     const getAllUsers: any = useSelector<any>((state: IRootState) => state.user);
     const getAllTags: any = useSelector<any>((state: IRootState) => state.tag);
@@ -39,6 +41,10 @@ const Home = () => {
         setRowsParPage(5);
     }
 
+    const handelClickDetail = (element: any) => {
+        navigate('/detail', { state: element })
+    }
+
     return (
         <Grid>
             <Grid container>
@@ -50,7 +56,8 @@ const Home = () => {
             <Grid container spacing={1}>
                 {Object.values(getAllPosts.allPost).map((element: any, key: any) => {
                     return <Grid key={key} item md={4} sm={6} xs={12}>
-                        <Card element={element} />
+                        <Card element={element} isComment={false} />
+                        <button onClick={() => handelClickDetail(element)}>Détail</button>
                     </Grid>
                 })}
             </Grid>
