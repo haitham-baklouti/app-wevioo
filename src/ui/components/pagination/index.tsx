@@ -33,6 +33,7 @@ export default function Pagination(props: any) {
     return (
         <TablePagination
             style={{ alignItems: 'center' }}
+            // sx={{ m: 1, width: 273 }}
             component="div"
             count={props.total}
             page={page}

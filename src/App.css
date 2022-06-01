@@ -12,8 +12,16 @@ body {
   margin-left: 0 !important;
 }
 
+.css-jtlhu6-MuiTablePagination-root:last-child {
+  overflow: overlay !important;
+}
+
 .css-1uzaow0-MuiPaper-root-MuiCard-root {
   min-height: 450px !important;
+}
+
+.css-vj1n65-MuiGrid-root {
+  text-align: -webkit-center;
 }
 
 .App-logo {
