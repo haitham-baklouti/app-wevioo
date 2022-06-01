@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { assocativeErrMap } from './mapper';
 
 // initialiser la baseUrl
 export const API_ROOT = 'https://dummyapi.io/data/v1/';
@@ -12,13 +13,28 @@ const instance = axios.create({
     },
 })
 
+const gestionErreur = () => {
+    instance.interceptors.response.use(
+        response => {
+            return response
+        },
+        error => {
+            const err = error.response.data.error;
+            alert(assocativeErrMap.get(err))
+            return Promise.reject(err)
+        }
+    )
+}
+
 export function Get(url: any) {
+    gestionErreur();
     return new Promise(resolve => {
         resolve(instance.get(url))
     })
 }
 
 export function Post(url: any, payload: any) {
+    gestionErreur();
     return new Promise(resolve => {
         resolve(instance.post(url, payload))
     })
