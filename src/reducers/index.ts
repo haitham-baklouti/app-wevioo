@@ -11,6 +11,8 @@ import tag from '../modules/tag/service/store/tag.reducer';
 import { CommentState } from '../modules/comment/service/store/comment.state';
 import comment from '../modules/comment/service/store/comment.reducer';
 
+// les reducers qui prennent le courant state et l'action et qui return une newState
+
 export interface IRootState {
     readonly post: PostState;
     readonly user: UserState;
@@ -25,6 +27,7 @@ const containersReducer = ({
     comment
 });
 
+// config pour sauvgarder le store (user, tag) pour les récupérer directement sans faire appelle une autre fois du API
 const persistConfig = {
     key: 'root',
     storage,

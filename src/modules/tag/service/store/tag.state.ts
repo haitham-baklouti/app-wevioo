@@ -1,4 +1,5 @@
 
+// intitialiser la state du store du tag
 export interface ITag {
     id: String,
     firstName: String,

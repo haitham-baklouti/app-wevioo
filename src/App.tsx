@@ -7,9 +7,12 @@ function App() {
 
   return (
     <div className='App'>
+      {/* pour garder le UI sync  */}
       <BrowserRouter>
         <Routes>
+          {/* route pour accéder à la page list des post */}
           <Route path="/" element={<Post />} />
+          {/* route pour accéder à la page détail */}
           <Route path="/detail" element={<Detail />} />
         </Routes>
       </BrowserRouter>

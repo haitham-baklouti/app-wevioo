@@ -27,9 +27,12 @@ const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
 const FilterForm = (props: any) => {
+    // state pour la valeur du select
     const [id, setId] = React.useState('');
+    // state pour les valeur du select multiple
     const [valueMultiple, setValueMultiple] = React.useState([]);
 
+    // function pour actualiser la valeur du multi select
     const handleChangeMultiple = (event: any) => {
         const {
             target: { value },
@@ -41,14 +44,18 @@ const FilterForm = (props: any) => {
         setValueMultiple(event.target.value);
     }
 
+    // function pour actualiser la valeur du select list
     const handleChange = (event: any) => {
         setId(event.target.value);
+        // exécuter la function handelFilter du props pour exécuter l'api du filter par user
         props.handelFilter(event.target.value);
 
     };
 
+    // return form selon la list d'input qu'est dynamique selon la list
     return props.setListInput().map((item: any) => {
         if (item)
+            // pour la select list
             if (item.isSelect)
                 return (
                     <Grid md={6} sm={12} xs={12}>
@@ -74,6 +81,7 @@ const FilterForm = (props: any) => {
                         </FormControl>
                     </Grid>
                 )
+            // pour la select multiple
             else if (item.isAutoComplete)
                 return (
                     <Grid md={6} sm={12} xs={12}>

@@ -1,4 +1,5 @@
 
+// intitialiser la state du store du user
 export interface IComment {
     id: String,
     post: String,

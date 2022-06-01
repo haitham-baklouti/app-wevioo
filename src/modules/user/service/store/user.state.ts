@@ -1,4 +1,5 @@
 
+// intitialiser la state du store du user
 export interface IUser {
     id: String,
     firstName: String,

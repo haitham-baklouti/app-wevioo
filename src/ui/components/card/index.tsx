@@ -16,6 +16,7 @@ export default function RecipeReviewCard(props: any) {
   return (
     <>
       <Card style={{ border: '1px solid', backgroundColor: '#b7c0d', textAlign: 'left', paddingBottom: '0%' }} sx={{ maxWidth: 345, minHeight: !props.isComment ? 400 : 50 }}>
+        {/* heder de la card pour le nom est l'image */}
         <CardHeader
           avatar={
             <Avatar aria-label="recipe">
@@ -25,12 +26,14 @@ export default function RecipeReviewCard(props: any) {
           title={`${props.element.owner.firstName} ${props.element.owner.lastName}`}
           subheader={props.element.publishDate.split('.')[0].replace('T', ' à ')}
         />
+        {/* pour l'image du center du post */}
         {!props.isComment && <CardMedia
           component="img"
           height="194"
           image={props.element.image}
           alt="Paella dish"
         />}
+        {/* contient les textes et les messages */}
         <CardContent>
           <Typography variant="body1" color="text.primary">
             {!props.isComment ? props.element.text : props.element.message}
@@ -41,6 +44,7 @@ export default function RecipeReviewCard(props: any) {
             })}
           </Typography>
         </CardContent>
+        {/* les likes */}
         {!props.isComment && <CardActions >
           <IconButton aria-label="add to favorites">
             <Typography variant="body1" color="text.primary">

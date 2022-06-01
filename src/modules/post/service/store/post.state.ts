@@ -1,4 +1,5 @@
 
+// intitialiser la state du store du post
 export interface IPost {
     id: String,
     image: String,

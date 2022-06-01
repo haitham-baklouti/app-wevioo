@@ -1,6 +1,7 @@
 import { ACTION_TYPE } from "./post.actions";
 import { initialState, PostState } from "./post.state";
 
+// la liste des action pour maj le store
 export default (state: PostState = initialState, action: any): any => {
     switch (action.type) {
         case ACTION_TYPE.GET_ALL_POST:

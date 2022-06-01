@@ -1,7 +1,9 @@
 import axios from 'axios'
 
+// initialiser la baseUrl
 export const API_ROOT = 'https://dummyapi.io/data/v1/';
 
+// initialiser la header
 const instance = axios.create({
     baseURL: API_ROOT,
     headers: {

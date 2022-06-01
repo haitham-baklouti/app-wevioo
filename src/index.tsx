@@ -11,7 +11,9 @@ const store = initStore;
 const root = document.getElementById('root') as HTMLElement;
 const render = (Component: any) =>
   ReactDOM.render(
+    // rendre le store disponible pour les autre composant
     <Provider store={store}>
+      {/* pour sauvgarder store dans le local storage pour l'optimisation  */}
       <PersistGate
         persistor={persistStore(store)}
       >
